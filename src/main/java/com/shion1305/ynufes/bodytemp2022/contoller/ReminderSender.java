@@ -37,13 +37,7 @@ public class ReminderSender implements ServletContextListener {
 
     public static void schedule() {
         Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        if (hour > 6) {
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.HOUR_OF_DAY, 7);
-        calendar.set(Calendar.SECOND, 0);
+        calendar.add(Calendar.MINUTE, 1);
         Date d = calendar.getTime();
         logger.info("Scheduled at " + d);
         timer.schedule(new TimerTask() {
